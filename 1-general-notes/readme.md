@@ -18,6 +18,15 @@
 
 3. ![TS-vs-JS](../0a-utils/images/ts-vs-js.png)
 
+4. We can use the typescript compiler outside of webpact. By having it installed globally.
+
+   ```bash
+   npm i -g typescript
+   yarn add global typescript
+   ```
+
+5. Can also use it locally by having it as a dependancy in our projects
+
 ## Installing TS Compilers
 
 1. In the package.json file there is a `start script which calls our webpack-dev-server`

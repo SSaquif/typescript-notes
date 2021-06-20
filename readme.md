@@ -1,5 +1,7 @@
 # Typescript Notes
 
+Notes Based on Todd Motto's TS course
+
 ## Contents
 
 1. General Notes
