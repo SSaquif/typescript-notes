@@ -54,6 +54,57 @@
 
 ## TypeScript Compiler (tsc) and tsconfig
 
+1. Running the TS compiler from terminal
+
+   ```bash
+   # will bring up the help menu with examples and options
+   tsc
+   # version
+   tsc -version
+   # running a single file
+   tsc hello.ts
+   # initialing a ts project and generating the tsconfig file
+   # The file will have most stuff commented out
+   # but u can always generate this and see possible configurations
+   tsc --init
+   ```
+
+2. Once we have the tscongif file we can just run `tsc` on command line and project will be built and js files will be produced
+
+3. but our initial html has the script as follows (see below), so we need to generate our js files inside a `/dist` directory
+
+   ```html
+   <script src="dist/app.js"></script>
+   ```
+
+4. To specify an output directory named dist we run the following
+
+   ```bash
+   tsc --outDir dist
+   ```
+
+5. But instead of having to do that manually we simply update our tsconfig file by adding, now we can once again just run `tsc` to build it
+
+   ```json
+   {
+     "compilerOptions"{
+     <!-- other properties -->
+     "outDir": "dist"
+     }
+   }
+   ```
+
+6. Finally we want to enable watch mode, so the js files are auto updated when we change our ts files. To do so run the following and your terminal will now be running the tsc cli tool which will notify you of updates.
+
+```bash
+# running tsc with the watch option
+tsc -watch
+```
+
 ## Setting up Webpack for TypeScript
+
+1. It's a good idea to have a local server where we can live reload our TS web apps
+
+2. This is where Webpack dev server comes in
 
 ## Resources

@@ -23,9 +23,9 @@ Notes Based on Todd Motto's TS course
 WIP
 
 For now the notes are in seperate folders.
-Might change this later
+Might change this later.
 All the code is in the starter-project folder so far.
 
-# How it works
+## How it works
 
 1. Look at the TS compiler section in General Notes for details
