@@ -57,6 +57,8 @@
 1. Running the TS compiler from terminal
 
    ```bash
+   # tsc is the command line tool to deal with TS, its has a cli
+
    # will bring up the help menu with examples and options
    tsc
    # version
@@ -106,5 +108,32 @@ tsc -watch
 1. It's a good idea to have a local server where we can live reload our TS web apps
 
 2. This is where Webpack dev server comes in
+
+3. For the course we use webpack (via a webpack configuration files) to
+
+   1. take care of compiling the TS
+   2. setting up local dev server
+   3. keep an eye on the changes
+
+4. He talks about how webpack works for the first 5 min of the video (A Good Refresher), and the different parts of the `webpack.config.js` file
+
+5. The output of webpack is completely virtual, so we wont see an actual physical `/dist` folder. So we can delete it
+
+6. We no longer need the `/dist` folder with webpack like we did when we run tsc directly
+
+7. In the `index.html` file we can now change the scipt tag as follows
+
+   ```html
+   <!-- <script src="dist/app.js"></script> -->
+   <script src="app.js"></script>
+   ```
+
+8. These are some advantages of using Webpack over the ts compiler directly
+
+9. Also now we run our start script and start our webpack dev server, we also see some meta data like size (of app), chunks (useful for doe splitting)
+
+10. I believe we still need our tsconfig.json file.
+
+11. We probably don't need the `outDir` property for webpack but good idea to keep it none the less if we need to use tsc directly again.
 
 ## Resources

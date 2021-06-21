@@ -2,6 +2,10 @@
 
 Notes Based on Todd Motto's TS course
 
+The course uses a older verion of TS `2.6.2`, as of present I have `4.3.4` on my computer
+
+Since this is just basic notes, I wont update the project to the latest version (for now at least)
+
 ## Contents
 
 1. General Notes
