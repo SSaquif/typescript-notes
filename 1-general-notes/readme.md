@@ -117,7 +117,7 @@ tsc -watch
 
 4. He talks about how webpack works for the first 5 min of the video (A Good Refresher), and the different parts of the `webpack.config.js` file
 
-5. The output of webpack is completely virtual, so we wont see an actual physical `/dist` folder. So we can delete it
+5. The output of webpack is completely virtual, there's no physical `/dist` folder. So we can delete it.
 
 6. We no longer need the `/dist` folder with webpack like we did when we run tsc directly
 
@@ -134,6 +134,6 @@ tsc -watch
 
 10. I believe we still need our tsconfig.json file.
 
-11. We probably don't need the `outDir` property for webpack but good idea to keep it none the less if we need to use tsc directly again.
+11. We don't need the `outDir` property for webpack but good idea to keep it none the less if we need to use tsc directly again. (I checked this, works as expected)
 
 ## Resources
