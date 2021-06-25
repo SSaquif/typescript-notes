@@ -10,7 +10,7 @@ Since this is just basic notes, I wont update the project to the latest version 
 
 1. General Notes
 
-2. ES6/7 and TypeScript
+2. ES6/7 and TypeScript (skipped)
 
 3. Primitive Types
 
@@ -26,10 +26,14 @@ Since this is just basic notes, I wont update the project to the latest version 
 
 WIP
 
-For now the notes are in seperate folders.
-Might change this later.
-All the code is in the starter-project folder so far.
+Notes in notes folder
+
+Actual runnable code in the started project folder
 
 ## How it works
 
 1. Look at the TS compiler section in General Notes for details
+
+2. run `tsc -watch` and then run the js files created in the dist folders using `node` like always for testing
+
+3. You cant reuse variable names in different files unless you use module system (havent learnt that yet)

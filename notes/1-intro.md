@@ -1,4 +1,6 @@
-# General Notes
+# TS Under the Hood
+
+This section talks about how ts works and how to set it up.
 
 ## Intro
 
@@ -16,7 +18,7 @@
 
 2. The compiler can decide what version of js to compilet to ES5/6/7
 
-3. ![TS-vs-JS](../0a-utils/images/ts-vs-js.png)
+3. ![TS-vs-JS](../images/ts-vs-js.png)
 
 4. We can use the typescript compiler outside of webpact. By having it installed globally.
 
