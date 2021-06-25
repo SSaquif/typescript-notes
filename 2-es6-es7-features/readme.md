@@ -8,3 +8,5 @@
 4. Spread Operators
 5. Destructuring
 6. Object literal enhancements
+
+Nothing new here, kinda skipped it
