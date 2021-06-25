@@ -67,27 +67,33 @@ This section talks about how ts works and how to set it up.
    tsc -version
    # running a single file
    tsc hello.ts
+
+   ```
+
+2. Initializing a TS project
+
+   ```bash
    # initialing a ts project and generating the tsconfig file
    # The file will have most stuff commented out
    # but u can always generate this and see possible configurations
    tsc --init
    ```
 
-2. Once we have the tscongif file we can just run `tsc` on command line and project will be built and js files will be produced
+3. Once we have the tscongif file we can just run `tsc` on command line and project will be built and js files will be produced
 
-3. but our initial html has the script as follows (see below), so we need to generate our js files inside a `/dist` directory
+4. but our initial html has the script as follows (see below), so we need to generate our js files inside a `/dist` directory
 
    ```html
    <script src="dist/app.js"></script>
    ```
 
-4. To specify an output directory named dist we run the following
+5. To specify an output directory named dist we run the following
 
    ```bash
    tsc --outDir dist
    ```
 
-5. But instead of having to do that manually we simply update our tsconfig file by adding, now we can once again just run `tsc` to build it
+6. But instead of having to do that manually we simply update our tsconfig file by adding, now we can once again just run `tsc` to build it
 
    ```json
    {
@@ -98,7 +104,7 @@ This section talks about how ts works and how to set it up.
    }
    ```
 
-6. Finally we want to enable watch mode, so the js files are auto updated when we change our ts files. To do so run the following and your terminal will now be running the tsc cli tool which will notify you of updates.
+7. Finally we want to enable watch mode, so the js files are auto updated when we change our ts files. To do so run the following and your terminal will now be running the tsc cli tool which will notify you of updates.
 
 ```bash
 # running tsc with the watch option
