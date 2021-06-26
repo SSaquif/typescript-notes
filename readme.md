@@ -37,3 +37,9 @@ Actual runnable code in the starter project folder
 2. run `tsc -watch` and then run the js files created in the dist folders using `node` like always for testing
 
 3. You cant reuse variable names in different files unless you use module system (havent learnt that yet)
+
+## Resources
+
+- [TypeScript Docs](https://www.typescriptlang.org)
+- [TypeScript Playground](https://www.typescriptlang.org/play)
+- [AST Explorer](https://astexplorer.net)
