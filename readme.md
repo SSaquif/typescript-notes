@@ -28,11 +28,11 @@ WIP
 
 Notes in notes folder
 
-Actual runnable code in the started project folder
+Actual runnable code in the starter project folder
 
 ## How it works
 
-1. Look at the TS compiler section in General Notes for details
+1. Look at the TS compiler section in `intro.md` for details
 
 2. run `tsc -watch` and then run the js files created in the dist folders using `node` like always for testing
 
