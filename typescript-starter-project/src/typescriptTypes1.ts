@@ -1,3 +1,7 @@
+// By having a top level export statement I am converting each file to a module
+// Allows me to reuse variable names
+export const moduleName: string = "TypeScript Types 1";
+
 // Some of the code for this section is only in the notes file
 
 // ANY type (try and avoid using it)

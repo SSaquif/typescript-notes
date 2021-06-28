@@ -1,3 +1,6 @@
+// Module Conversion via export statement
+export const moduleName: string = "TypeScript Object Types";
+
 // Way 1
 // Predefined Object Signature
 

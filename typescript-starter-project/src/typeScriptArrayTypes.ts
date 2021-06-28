@@ -1,3 +1,6 @@
+// Module Conversion via export statement
+export const moduleName: string = "TypeScript Array Types";
+
 // Basic
 
 // String Array
@@ -23,7 +26,8 @@ let toppings: Array<string>;
 
 toppings = ["pepperoni", "tomato", "pineapple", "ham"];
 
-// Tuple Types
+// Tuple Types //
+
 // A tuple types allows us to suggest to TS that
 // we have some kind of data structure, inside of an array
 // which is made up of different types

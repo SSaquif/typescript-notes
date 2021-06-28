@@ -1,4 +1,8 @@
+// Module Conversion via export statement
+export const moduleName: string = "TypeScript Types";
+
 // 1. Types in ts
+
 const pizzaCost: number = 10;
 
 const pizzaToppings: number = 2;

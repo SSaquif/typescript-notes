@@ -1,3 +1,6 @@
+// Module Conversion via export statement
+export const moduleName: string = "TypeScript Types 2";
+
 // Function Type
 
 // Way 1 //

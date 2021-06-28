@@ -36,7 +36,11 @@ Actual runnable code in the starter project folder
 
 2. run `tsc -watch` and then run the js files created in the dist folders using `node` like always for testing
 
-3. You cant reuse variable names in different files unless you use module system (havent learnt that yet)
+3. You cant reuse variable names in different files unless you use module system (see below)
+
+4. Modules are a way to create a local scope in the file. So, all variables, classes, functions, etc. that are declared in a module are not accessible outside the module.
+
+5. A module can be created using the keyword export and a module can be used in another module using the keyword import.
 
 ## Resources
 
