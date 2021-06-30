@@ -8,6 +8,7 @@ type Pizza = { name: string; toppings: number };
 const pizza: Pizza = { name: "toute garnie", toppings: 5 };
 
 const serializedPizza = JSON.stringify(pizza);
+console.log(serializedPizza);
 
 // Way 1
 function getNameFromJSON(obj: string) {
@@ -19,5 +20,5 @@ function getNoOfToppingsFromJSON(obj: string) {
   return (JSON.parse(obj) as Pizza).toppings;
 }
 
-getNameFromJSON(serializedPizza);
-getNoOfToppingsFromJSON(serializedPizza);
+console.log(getNameFromJSON(serializedPizza));
+console.log(getNoOfToppingsFromJSON(serializedPizza));
