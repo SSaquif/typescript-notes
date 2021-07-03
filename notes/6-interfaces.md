@@ -4,6 +4,14 @@
 
 2. They are the preferred when dealing with more complex data structures
 
+## Difference with languages like Java (Detour)
+
+1. In Java Interfaces are Classes with only method declarations ie. methods are not actually defined unlinke in TS.
+
+2. Interfaces in Java are used to build loosely coupled extensible, testable applications
+
+3. `Class A---> Interface X <----Calss B`. Both A and B are implementation of `X`. This makes them loosely coupled classes aloowing us to make changes to B without affecting A
+
 ## Using Type
 
 ```ts
