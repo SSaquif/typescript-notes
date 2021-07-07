@@ -1,3 +1,5 @@
+export const name = "Accessors in TS";
+
 class Sizes {
   public sizes: string[];
 

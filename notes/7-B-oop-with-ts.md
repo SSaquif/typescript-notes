@@ -216,6 +216,58 @@ console.log(sizes.availableSizes);
 
 ## Classes & Inheritance
 
+Pretty much like JS but with types
+
+```ts
+class Sizes {
+  public sizes: string[];
+
+  constructor(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  set availableSizes(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  get availableSizes() {
+    return this.sizes;
+  }
+}
+
+// Using extends just like in JS
+class Pizza extends Sizes {
+  readonly name: string;
+  private toppings: string[] = [];
+  readonly prices: { small: number; large: number };
+
+  constructor(name: string, sizes: string[]) {
+    super(sizes); //calling Parent constructor
+    this.name = name;
+    this.prices = { small: 10, large: 20 };
+  }
+
+  addTopping(topping: string) {
+    this.toppings.push(topping);
+  }
+}
+
+// Additional Argument sizes
+const pizza = new Pizza("Pepperoni", ["small", "medium", "large"]);
+pizza.addTopping("pepperoni");
+console.log(pizza);
+
+// Output
+// Pizza {
+//   sizes: [ 'small', 'medium', 'large' ],
+//   toppings: [ 'pepperoni' ],
+//   name: 'Pepperoni',
+//   prices: { small: 10, large: 20 }
+// }
+```
+
+This compiled JS is pretty interesting since `classes in JS` is just `syntactical sugar`. You can see it in the `dist folder` that's created.
+
 ## Abstract Classes
 
 ## Protected Members and Inheritance
