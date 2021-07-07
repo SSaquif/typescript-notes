@@ -29,7 +29,7 @@ export class Pizza extends Sizes {
     this.toppings.push(topping);
   }
 }
-
-const pizza = new Pizza("Pepperoni", ["small", "medium", "large"]);
+const sizesObj = new Sizes(["small", "medium", "large"]);
+const pizza = new Pizza("Pepperoni", sizesObj.sizes);
 pizza.addTopping("pepperoni");
 console.log(pizza);

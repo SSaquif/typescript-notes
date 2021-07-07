@@ -270,6 +270,61 @@ This compiled JS is pretty interesting since `classes in JS` is just `syntactica
 
 ## Abstract Classes
 
+In the above section we can make a small change as follows if we wanted.
+
+```ts
+const sizesObj = new Sizes(["small", "medium", "large"]);
+const pizza = new Pizza("Pepperoni", sizesObj.sizes);
+pizza.addTopping("pepperoni");
+console.log(pizza);
+```
+
+1. That is, we can instantiate a sizes object first and then pass it on.
+
+2. But we might not always want to do this.
+
+> You `CAN NOT instantiate an abstract class`. Abstract class simply indicates it's a class we want to extend from later on
+
+So when we just wnat to inherit from a class but never instantiate it on it's own, we can use `Abstract Classes`
+
+```ts
+abstract class Sizes {
+  public sizes: string[];
+
+  constructor(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  set availableSizes(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  get availableSizes() {
+    return this.sizes;
+  }
+}
+
+class Pizza extends Sizes {
+  readonly name: string;
+  private toppings: string[] = [];
+  readonly prices: { small: number; large: number };
+
+  constructor(name: string, sizes: string[]) {
+    super(sizes);
+    this.name = name;
+    this.prices = { small: 10, large: 20 };
+  }
+
+  addTopping(topping: string) {
+    this.toppings.push(topping);
+  }
+}
+// const sizesObj = new Sizes(); // error
+const pizza = new Pizza("Pepperoni", ["small", "medium", "large"]);
+pizza.addTopping("pepperoni");
+console.log(pizza);
+```
+
 ## Protected Members and Inheritance
 
 ## Interface Contracts with Implements
