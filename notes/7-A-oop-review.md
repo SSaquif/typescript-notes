@@ -4,6 +4,8 @@ In this section I will talk about OOP in general. and not specific to any partic
 
 I will also point out what JS does differently.
 
+There will a review of the js `this` keyword in a separate md file.
+
 ## 4 Principle of JS
 
 1. Encapsulation (allows Data Hiding)
@@ -73,6 +75,8 @@ In OOP this typically means methods with same names In `Parent` and `Class` beha
 1. Multiple methods with `same name` but `different parameters`
 
 2. Within the `same class`
+
+3. Interestingly when creating Getters and Setters in TS, we can actually kinda use overloading. Both the get and set methods can have same name but different params. Getter Typically being empty. You could also name them differently like you would in Java
 
 ### Overriding
 
