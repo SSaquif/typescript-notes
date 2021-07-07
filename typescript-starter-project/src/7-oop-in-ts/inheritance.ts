@@ -1,4 +1,4 @@
-class Sizes {
+export class Sizes {
   public sizes: string[];
 
   constructor(sizes: string[]) {
@@ -14,7 +14,7 @@ class Sizes {
   }
 }
 
-class Pizza extends Sizes {
+export class Pizza extends Sizes {
   readonly name: string;
   private toppings: string[] = [];
   readonly prices: { small: number; large: number };
