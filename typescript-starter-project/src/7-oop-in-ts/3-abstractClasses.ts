@@ -1,5 +1,5 @@
 export abstract class Sizes {
-  public sizes: string[];
+  protected sizes: string[];
 
   constructor(sizes: string[]) {
     this.sizes = sizes;
@@ -25,11 +25,16 @@ export class Pizza extends Sizes {
     this.prices = { small: 10, large: 20 };
   }
 
-  addTopping(topping: string) {
+  public updateSizes(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  public addTopping(topping: string) {
     this.toppings.push(topping);
   }
 }
 
 const pizza = new Pizza("Pepperoni", ["small", "medium", "large"]);
 pizza.addTopping("pepperoni");
-console.log(pizza);
+pizza.updateSizes(["small", "large"]);
+console.log(pizza.availableSizes);

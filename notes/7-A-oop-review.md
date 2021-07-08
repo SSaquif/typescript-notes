@@ -42,13 +42,23 @@ Encapsulation also allows for `data hiding` via getters and setters
    3. Empty methods are called Abstract methods
    4. Child classes MUST implement implement the abstract method
 
+### Interfaces TS vs Java
+
+> 1. In TS `interfaces` can be quite different
+>
+> 2. But also very similar when interfaces are implemented by a class like Java
+>
+> 3. But they `DON'T necessarily have to used exclusively with classes` unlike Java
+>
+> 4. See TS OOP notes and Interface notes for details
+
+### Abstract Classes TS vs Java
+
 > 1. JS has no abstract classes In TS their are abstract classes, but that are somewhat different. See TS OOP notes for details
 >
 > 2. In TS you `CAN NOT instantiate an abstract class`. Abstract class simply indicates it's a class we want to extend from later on.
 >
 > 3. So they are classes that can only be inherited from.
-
-> In TS `interfaces` are quite different as well and See TS OOP notes
 
 ## Inheritance
 

@@ -325,8 +325,173 @@ pizza.addTopping("pepperoni");
 console.log(pizza);
 ```
 
-## Protected Members and Inheritance
+## Protected vs Private Members and Inheritance
+
+1. `private` properties are not accessible to `subclasses`
+
+2. If we want them to be accessible in `subclasses`, we use `protected instead`
+
+Here we see private sizes not accessible in pizza sublass
+
+```ts
+export abstract class Sizes {
+  private sizes: string[];
+
+  constructor(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  set availableSizes(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  get availableSizes() {
+    return this.sizes;
+  }
+}
+
+export class Pizza extends Sizes {
+  readonly name: string;
+  private toppings: string[] = [];
+  readonly prices: { small: number; large: number };
+
+  constructor(name: string, sizes: string[]) {
+    super(sizes);
+    this.name = name;
+    this.prices = { small: 10, large: 20 };
+  }
+
+  public updateSizes(sizes: string[]) {
+    this.sizes = sizes; // ERROR: private property of parent class
+  }
+
+  public addTopping(topping: string) {
+    this.toppings.push(topping);
+  }
+}
+```
+
+Easy fix, cahnge it to protected
+
+```ts
+export abstract class Sizes {
+  protected sizes: string[];
+
+  constructor(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  set availableSizes(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  get availableSizes() {
+    return this.sizes;
+  }
+}
+
+export class Pizza extends Sizes {
+  readonly name: string;
+  private toppings: string[] = [];
+  readonly prices: { small: number; large: number };
+
+  constructor(name: string, sizes: string[]) {
+    super(sizes);
+    this.name = name;
+    this.prices = { small: 10, large: 20 };
+  }
+
+  public updateSizes(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  public addTopping(topping: string) {
+    this.toppings.push(topping);
+  }
+}
+
+const pizza = new Pizza("Pepperoni", ["small", "medium", "large"]);
+pizza.addTopping("pepperoni");
+pizza.updateSizes(["small", "large"]);
+console.log(pizza.availableSizes); // [ 'small', 'large' ]
+```
 
 ## Interface Contracts with Implements
+
+1. Interfaces can be combined with classes using `implements` keyword.
+
+2. It's actually very similar to a `Java Interface`. In the sense that it's just a class with properties and method declarations but they are not actually implemeted
+
+3. `Important:` When it comes to describing `getters and setters` in an interface, the syntax is different from a regular function. There are no `()` and you can pretty much only define the return type. So the descriptions aren't very verbose unlike other functions. So it's upto us to make sure they work correctly and things like unit testing can help.
+
+4. `Important:` `private` and `protected` members `CAN'T be defined in an Interface`. `public` and `readonly` properties are fine
+
+5. We can `extend` and Interface just like a class
+
+```ts
+interface SizesInterface {
+  availableSizes: string[]; // Accessor Function
+}
+
+export abstract class Sizes implements SizesInterface {
+  protected sizes: string[];
+
+  constructor(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  set availableSizes(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  get availableSizes() {
+    return this.sizes;
+  }
+}
+
+interface PizzaInterface extends Sizes {
+  readonly name: string;
+  // toppings: string[]; Error cause toppings is private
+  updateSizes(sizes: string[]): void;
+  addTopping(topping: string): void;
+}
+
+export class Pizza extends Sizes implements PizzaInterface {
+  readonly name: string;
+  private toppings: string[] = [];
+  readonly prices: { small: number; large: number };
+
+  constructor(name: string, sizes: string[]) {
+    super(sizes);
+    this.name = name;
+    this.prices = { small: 10, large: 20 };
+  }
+
+  public updateSizes(sizes: string[]) {
+    this.sizes = sizes;
+  }
+
+  public addTopping(topping: string) {
+    this.toppings.push(topping);
+  }
+}
+
+const pizza = new Pizza("Pepperoni", ["small", "medium", "large"]);
+pizza.addTopping("pepperoni");
+console.log(pizza.availableSizes);
+pizza.updateSizes(["small", "large"]);
+console.log(pizza.availableSizes);
+console.log(pizza);
+
+// output
+// [ 'small', 'medium', 'large' ]
+// [ 'small', 'large' ]
+// Pizza {
+//   sizes: [ 'small', 'large' ],
+//   toppings: [ 'pepperoni' ],
+//   name: 'Pepperoni',
+//   prices: { small: 10, large: 20 }
+// }
+```
 
 ## Static Properties & Methods

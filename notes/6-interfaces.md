@@ -4,6 +4,10 @@
 
 2. They are the preferred when dealing with more complex data structures
 
+3. The are a structural contract.
+
+4. Can be combined with classes, which feels more like a Java Interface (See OOP with TS file)
+
 ## Difference with languages like Java (Detour)
 
 1. In Java Interfaces are Classes with only method declarations ie. methods are not actually defined unlinke in TS.
@@ -78,9 +82,11 @@ In this section we see how we will define functions with return types within the
 
 1. In the example `createPizza()` is our function with return type `Pizza`
 
-2. There are 2 ways to define the return typpe, see above for second way
+2. There are 2 ways to define the return type, see above
 
 3. Finally, if we want we can omit the return type altogether but that nullifies typescripts ability to infer the return type of our function. So not recommended.
+
+4. When it comes to describing `getters and setters` in an interface, the syntax is slightly different from a regular function (see OOP with TS file)
 
 ```ts
 interface Pizza {
