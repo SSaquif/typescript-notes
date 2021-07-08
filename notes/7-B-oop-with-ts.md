@@ -416,7 +416,7 @@ pizza.updateSizes(["small", "large"]);
 console.log(pizza.availableSizes); // [ 'small', 'large' ]
 ```
 
-## Interface Contracts with Implements
+## Interfaces and Classes
 
 1. Interfaces can be combined with classes using `implements` keyword.
 
@@ -495,3 +495,59 @@ console.log(pizza);
 ```
 
 ## Static Properties & Methods
+
+Stactic vs Instance Properties Refresher
+
+1. Static is once per class
+
+2. Instance is once per Object
+
+Some JS examples of static methods I use daily
+
+```JS
+// dont have to create a new Object/Instance
+// using the new keyword
+const date = Date.now()
+const array = Array.from('foo')
+```
+
+1. static properties in TS can be mutated
+
+   ```ts
+   class Coupon {
+     static allowed = ["Pepperoni", "Blazing Inferno"];
+   }
+
+   console.log(Coupon.allowed);
+
+   Coupon.allowed = []; // This is OK
+   ```
+
+2. If you dont want this, we can make it `readonly`
+
+   ```ts
+   class Coupon {
+     static readonly allowed = ["Pepperoni", "Blazing Inferno"];
+   }
+
+   console.log(Coupon.allowed);
+
+   Coupon.allowed = []; // Error
+   ```
+
+3. Static Methods
+
+   ```ts
+   class Coupon {
+     static allowed = ["Pepperoni", "Blazing Inferno"];
+     static create(percentage: number) {
+       return `PIZZA_${percentage}%`;
+     }
+   }
+
+   console.log(Coupon.allowed);
+   console.log(Coupon.create(25));
+   // Output
+   // [ 'Pepperoni', 'Blazing Inferno' ]
+   // PIZZA_25%
+   ```
