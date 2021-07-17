@@ -2,6 +2,19 @@
 
 This section talks about how ts works and how to set it up.
 
+## Contents
+
+<!-- toc -->
+
+- [Intro](#intro)
+- [Typescript Compiler](#typescript-compiler)
+- [Installing TS Compilers](#installing-ts-compilers)
+- [TypeScript Compiler (tsc) and tsconfig](#typescript-compiler-tsc-and-tsconfig)
+- [Setting up Webpack for TypeScript](#setting-up-webpack-for-typescript)
+- [Resources](#resources)
+
+<!-- tocstop -->
+
 ## Intro
 
 1. TypeScript does not run in the Browser. So a compilation step in the build process is need.

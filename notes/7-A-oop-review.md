@@ -6,6 +6,27 @@ I will also point out what JS does differently.
 
 There will a review of the js `this` keyword in a separate md file.
 
+## Contents
+
+<!-- toc -->
+
+- [4 Principle of JS](#4-principle-of-js)
+- [Encapsulation](#encapsulation)
+- [Abstraction](#abstraction)
+  * [Interfaces TS vs Java](#interfaces-ts-vs-java)
+  * [Abstract Classes TS vs Java](#abstract-classes-ts-vs-java)
+- [Inheritance](#inheritance)
+  * [Java](#java)
+  * [JS](#js)
+- [Polymorphism](#polymorphism)
+  * [Overloading (not possible in JS)](#overloading-not-possible-in-js)
+  * [Overriding](#overriding)
+  * [Overing riding in Java (final methods)](#overing-riding-in-java-final-methods)
+- [Static Methods (Java)](#static-methods-java)
+- [Dependancy Injections](#dependancy-injections)
+
+<!-- tocstop -->
+
 ## 4 Principle of JS
 
 1. Encapsulation (allows Data Hiding)

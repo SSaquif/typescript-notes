@@ -4,6 +4,28 @@ Putting all my JS notes here for now, will clean up later. Will likely break thi
 
 The OOP cards are a mess, should probably update all that when I get time
 
+## Contents
+
+<!-- toc -->
+
+- [Objects & Functions Basics](#objects--functions-basics)
+- [Enumerating Object Properties](#enumerating-object-properties)
+- [Defining Functions](#defining-functions)
+  * [Function Declaration vs Function Expression vs Arrow Functions](#function-declaration-vs-function-expression-vs-arrow-functions)
+- [Creating Objects](#creating-objects)
+  * [Object Literal](#object-literal)
+  * [Factory Function](#factory-function)
+  * [Constructor Function](#constructor-function)
+- [Callback Function (Should be it's own section/file with CPS stuff)](#callback-function-should-be-its-own-sectionfile-with-cps-stuff)
+- [Extras](#extras)
+  * [Constructor Property (Advanced)](#constructor-property-advanced)
+  * [Arguments Keyword (Intermediate)](#arguments-keyword-intermediate)
+  * [Getters and Setters (get and set Keywords)](#getters-and-setters-get-and-set-keywords)
+  * [Break and Continue Keywords](#break-and-continue-keywords)
+  * [This Keyword](#this-keyword)
+
+<!-- tocstop -->
+
 ## Objects & Functions Basics
 
 1. In JS Functions are objects

@@ -1,5 +1,15 @@
 # Type Aliases & Type Assertions
 
+## Contents
+
+<!-- toc -->
+
+- [Type Aliases](#type-aliases)
+- [Type Assertions (Method 1)](#type-assertions-method-1)
+- [Type Assertions (Method 2) a new addition to TS](#type-assertions-method-2-a-new-addition-to-ts)
+
+<!-- tocstop -->
+
 ## Type Aliases
 
 We can create our own types and resuse them across our code

@@ -1,5 +1,14 @@
 # Primitive Types
 
+## Contents
+
+<!-- toc -->
+
+- [General](#general)
+- [Detailed Notes](#detailed-notes)
+
+<!-- tocstop -->
+
 ## General
 
 1. Reminder: 3. You cant reuse variable names in different files unless you use module system (havent learnt that yet)

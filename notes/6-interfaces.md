@@ -8,6 +8,24 @@
 
 4. Can be combined with classes, which feels more like a Java Interface (See OOP with TS file)
 
+## Contents
+
+<!-- toc -->
+
+- [Difference with languages like Java (Detour)](#difference-with-languages-like-java-detour)
+- [Using Type](#using-type)
+- [Converting to an Interface](#converting-to-an-interface)
+  * [Combining Interfaces (side note)](#combining-interfaces-side-note)
+- [Interfaces with Function Types](#interfaces-with-function-types)
+- [Extending Interfaces](#extending-interfaces)
+- [Interface and Optional Properties](#interface-and-optional-properties)
+- [Interface with Index Signature (Need to understand this better)](#interface-with-index-signature-need-to-understand-this-better)
+  * [Way 1 => [key:number]: string](#way-1--keynumber-string)
+  * [Way 2 => [key:string]:any](#way-2--keystringany)
+  * [Nested Index Signature](#nested-index-signature)
+
+<!-- tocstop -->
+
 ## Difference with languages like Java (Detour)
 
 1. In Java Interfaces are Classes with only method declarations ie. methods are not actually defined unlinke in TS.

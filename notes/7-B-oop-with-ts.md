@@ -4,6 +4,24 @@ When going through this section, the js-review and oop review notes can be helpf
 
 In JS and TS Classes are `syntactical sugar` for creating our own `constructor functions` (see review notes for detailed example) and `prototypal inheritance`
 
+## Contents
+
+<!-- toc -->
+
+- [Using Constructor Functions and Prototype](#using-constructor-functions-and-prototype)
+  * [Old way](#old-way)
+  * [Better Appraoch with classes](#better-appraoch-with-classes)
+- [Private and Public member](#private-and-public-member)
+- [Readonly Members](#readonly-members)
+- [Getters & Setters(Accessors)](#getters--settersaccessors)
+- [Classes & Inheritance](#classes--inheritance)
+- [Abstract Classes](#abstract-classes)
+- [Protected vs Private Members and Inheritance](#protected-vs-private-members-and-inheritance)
+- [Interfaces and Classes](#interfaces-and-classes)
+- [Static Properties & Methods](#static-properties--methods)
+
+<!-- tocstop -->
+
 ## Using Constructor Functions and Prototype
 
 Right of the bat there is a ts specific few issue using this old approach. If we are in `strict` mode, which we should be in most cases if not all, using the `this` keyword will throw an error. Because the 'this' object will by default be assigned any type and strict mode does not allow any implicit any types. We could set `strict` or the `noImplicitAny` property in the `tsconfig` file to false. But that's not ideal. So best to use classes instead.

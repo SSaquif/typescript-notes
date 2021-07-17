@@ -8,9 +8,11 @@ Since this is just basic notes, I wont update the project to the latest version 
 
 ## Contents
 
-1. General Notes
+0. JS Basics Review
 
-2. ES6/7 and TypeScript (skipped)
+1. General Notes (TS compiler and setup)
+
+2. ES6/7 Features (skipped)
 
 3. Primitive Types
 
@@ -18,7 +20,7 @@ Since this is just basic notes, I wont update the project to the latest version 
 
 5. Type Aliases and Assertions
 
-6. Diving into interfaces
+6. Typescript Interfaces
 
 7. Class, Properties and Inheritance
 

@@ -4,6 +4,14 @@ This section revises some new features introduced in ES6 and ES7, did not really
 
 Maybe will go through later.
 
+## Contents
+
+<!-- toc -->
+
+- [Some Features](#some-features)
+
+<!-- tocstop -->
+
 ## Some Features
 
 1. Imports and Exports (previoulsy had to use module patterns)
@@ -13,4 +21,4 @@ Maybe will go through later.
 5. Destructuring
 6. Object literal enhancements
 
-Nothing new here, kinda skipped it
+Nothing new here, skipped it

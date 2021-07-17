@@ -2,6 +2,23 @@
 
 For now I will mostly just dump the code from the file, will make it nicer later if needed
 
+## Contents
+
+<!-- toc -->
+
+- [Implicit vs Explicit Types](#implicit-vs-explicit-types)
+- [Any, Void, Never Types](#any-void-never-types)
+- [Null, Undefined, Strict Null Checks and Multiple Types (Union)](#null-undefined-strict-null-checks-and-multiple-types-union)
+- [More about Union and Literal Types](#more-about-union-and-literal-types)
+- [Function types](#function-types)
+- [Functions and Optional Arguments](#functions-and-optional-arguments)
+- [Typed Functions & Default Params](#typed-functions--default-params)
+- [Object Types](#object-types)
+- [Array Types and Intro to Generics](#array-types-and-intro-to-generics)
+- [Tuple Types for Arrays](#tuple-types-for-arrays)
+
+<!-- tocstop -->
+
 ## Implicit vs Explicit Types
 
 ```typescript
