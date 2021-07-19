@@ -8,6 +8,15 @@
 
 `typeof` and `keyof` can be useful in those cases
 
+## Contents
+
+<!-- toc -->
+
+- [`typeof` Type Queries](#typeof-type-queries)
+- [`keyof` Index Type Queries, Lookup Types and Generics](#keyof-index-type-queries-lookup-types-and-generics)
+
+<!-- tocstop -->
+
 ## `typeof` Type Queries
 
 The `typeof` operator works slightly differently in TS.
