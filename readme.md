@@ -24,13 +24,35 @@ Since this is just basic notes, I wont update the project to the latest version 
 
 7. Class, Properties and Inheritance
 
+   A. OOP General Overview (not JS specific)
+
+   B. OOP with TS
+
+   C. `this` refresher (skipped)
+
+   D. Typing `this` in TS
+
+8. Type Queries
+
+9. Mapped Types
+
+10. Type Guards
+
+11. Advanced Types & Practices
+
+12. Generics & Overloads
+
+13. Enums
+
+14. Declaration Files
+
+15. tsconfig & Compiler Options
+
 ## File Structure
 
-WIP
+Notes in `notes` folder
 
-Notes in notes folder
-
-Actual runnable code in the starter project folder
+Actual Runnable Code in the `typescript-starter-project` folder
 
 ## How it works
 
