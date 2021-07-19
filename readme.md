@@ -54,9 +54,9 @@ Notes in `notes` folder
 
 Actual Runnable Code in the `typescript-starter-project` folder
 
-## How it works
+## Running Code & Quick Notes
 
-1. Look at the TS compiler section in `intro.md` for details
+1. Look at the TS compiler section in the `intro.md` file for details
 
 2. run `tsc -watch` and then run the js files created in the dist folders using `node` like always for testing
 
@@ -64,7 +64,9 @@ Actual Runnable Code in the `typescript-starter-project` folder
 
 4. Modules are a way to create a local scope in the file. So, all variables, classes, functions, etc. that are declared in a module are not accessible outside the module.
 
-5. A module can be created using the keyword export and a module can be used in another module using the keyword import.
+5. An module can be created using the keyword export and a module can be used in another module using the keyword import.
+
+6. For this reason a most files have at least 1 unnecessary export in them
 
 ## Resources
 
