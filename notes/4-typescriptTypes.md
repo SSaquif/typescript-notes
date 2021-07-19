@@ -8,7 +8,7 @@ For now I will mostly just dump the code from the file, will make it nicer later
 
 - [Implicit vs Explicit Types](#implicit-vs-explicit-types)
 - [Any, Void, Never Types](#any-void-never-types)
-- [Null, Undefined, Strict Null Checks and Multiple Types (Union)](#null-undefined-strict-null-checks-and-multiple-types-union)
+- [Null, Undefined, Strict Null Checks and Multiple Types (Union Types)](#null-undefined-strict-null-checks-and-multiple-types-union)
 - [More about Union and Literal Types](#more-about-union-and-literal-types)
 - [Function types](#function-types)
 - [Functions and Optional Arguments](#functions-and-optional-arguments)
@@ -61,7 +61,7 @@ function orderError(error: string): never {
 orderError("Something went wrong");
 ```
 
-## Null, Undefined, Strict Null Checks and Multiple Types (Union)
+## Null, Undefined, Strict Null Checks and Multiple Types (Union Types)
 
 `Note:` This section is not in the ts file.
 
