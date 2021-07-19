@@ -99,7 +99,7 @@ Next we will demonstrate the power of genric types together with lookup types.
 
 We often wnat to get an property from an object, so we start by writing a function for that
 
-1. This is a `generic` `<T, K extends keyof T>`
+1. This is a `generic`, `<T, K extends keyof T>`
 
 2. T and K are generic types
 
@@ -117,7 +117,7 @@ We often wnat to get an property from an object, so we start by writing a functi
 
 6. Whose return value can always be type inferred
 
-> Side Note (Generics Refresher): In languages like C# and Java, one of the main tools in the toolbox for creating reusable components is generics, that is, being able to create a component that can work over a variety of types rather than a single one. This allows users to consume these components and use their own types. Think of `ArrayList<T>` in Java that I used all the time. The T could take on any type.
+> Side Note (Generics Refresher): In languages like C# and Java, one of the main tools in the toolbox for creating reusable components is generics, that is, being able to create a component that can work over a variety of types rather than a single one. This allows users to consume these components and use their own types. Think of `ArrayList<T>` in Java that I used all the time. The T could take on any type. But do remember here we are using Generic Functions so there are differences in JS. But the idea of a more universal function or class etc, still holds.
 
 ```ts
 const person = {
