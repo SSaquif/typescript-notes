@@ -11,9 +11,9 @@
 
 ## General
 
-1. Reminder: 3. You cant reuse variable names in different files unless you use module system (havent learnt that yet)
+1. Reminder: You cant reuse variable names in different files unless you use module system. Using `import` or `export` converts files to modules.
 
-2. JS Number() and TS numbner are not the same, same goes for other constructor. (We will see the difference later)
+2. JS Number() and TS number are not the same, same goes for other constructor. (We will see the difference later)
 
 3. By default , variables in in ts files are assigned a type once they are first assigned a value
 
