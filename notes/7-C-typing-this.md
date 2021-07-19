@@ -8,6 +8,8 @@ The second argument in this case event, is still the real fist argument to the f
 
 Note that all DOM objects have their own type type definitions. In this case href are HTMLAnchorElements and event objects have type Event
 
+> Apparently newer versions of ts are better at inferring the type of this, so you don't have to do it as often
+
 ```ts
 const elem = document.querySelector("#anchor");
 
