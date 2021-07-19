@@ -2,6 +2,8 @@
 
 Idea is transforming one type to another type.
 
+> Side Note: You can always `ctrl/cmd + click` on the Readonly, Partial etc Mapped Types in the code and see the actual code for them
+
 [Mapped types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html) were added in TS 2.1
 
 ## Contents
@@ -49,7 +51,7 @@ const newPerson = freezePerson(person);
 
 So this is technically not the old way, as the `freeze` function makes use of the mapped type `Readonly`. Which returns an object that matches the structure defined in our `ReadonlyPerson Interface`, and hence there are no errors
 
-### New way, Getting rid of our extra Interface
+### New Way, Getting Rid of Our Extra Interface
 
 So we can actually remove our extra interface. This code is identical to the one above
 
@@ -104,7 +106,7 @@ const person: Person = {
 const newPerson = freezePerson(person);
 ```
 
-### Old Way, Writing our own Readonly Mapped Type
+### Old Way, Writing Our Own Readonly Mapped Type
 
 So now if we combine what we learned we can write our own Mapped Type Readonly as follows
 
@@ -152,10 +154,74 @@ interface ReadonlyPerson {
 }
 ```
 
-## `Partial` Mapped Ttpe
+## `Partial` Mapped Type
+
+In this example we are updating only certain fields of an existing object.
+
+To do this we first create a new interface. But this is not very DRY.
+
+So we then create a custom Partial Mapped Type and Finally just use the built in one
+
+### Creating A New Interface
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface PartialPerson {
+  name?: string;
+  age?: number;
+}
+
+// Can be used to update any 1 or multiple properties of the object
+function updatePerson(person: Person, prop: PartialPerson) {
+  return { ...person, prop };
+}
+
+const person: Person = {
+  name: "Sadnan",
+  age: 27,
+};
+
+updatePerson(person, { age: 28 });
+
+console.log(person);
+```
+
+## Our Custom Partial Mapped Type
+
+Tthis is what the Partial Mapped type would look like
+
+```ts
+type MyPartial<Type> = {
+  [Property in keyof Type]?: Type[Property];
+};
+
+function updatePerson(person: Person, prop: MyPartial<Person>) {
+  return { ...person, prop };
+}
+```
+
+## Built In Partial Mapped Type
+
+Finally we can just use the Built-in one and not create any type/interface
+
+```ts
+function updatePerson(person: Person, prop: Partial<Person>) {
+  return { ...person, prop };
+}
+```
 
 ## `Required` Mapped Type, +/- Modifiers
 
 ## `Pick` Mapped Type
 
 ## `Record` Mapped Type
+
+## Summary
+
+1. Using built-in/custom Mapped Types saves us from creating a whole bunch of similar looking Interfaces over and over again
+
+2. User `ctrl/cmd + click`, to see the actual implemtation of any built in mapped types
