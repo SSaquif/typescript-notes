@@ -8,7 +8,25 @@ Idea is transforming one type to another type.
 
 ## Contents
 
-<!-- toc-->
+<!-- toc -->
+
+- [`Readonly` Mapped Type](#readonly-mapped-type)
+  * [Idea of Mapped Types using Readonly](#idea-of-mapped-types-using-readonly)
+  * [New Way, Getting Rid of Our Extra Interface](#new-way-getting-rid-of-our-extra-interface)
+  * [Mapped Types with Generics](#mapped-types-with-generics)
+  * [Old Way, Writing Our Own Readonly Mapped Type](#old-way-writing-our-own-readonly-mapped-type)
+- [`Partial` Mapped Type](#partial-mapped-type)
+  * [Creating A New Interface](#creating-a-new-interface)
+- [Our Custom Partial Mapped Type](#our-custom-partial-mapped-type)
+- [Built In Partial Mapped Type](#built-in-partial-mapped-type)
+- [`Required` Mapped Type, +/- Modifiers](#required-mapped-type---modifiers)
+  * [+/- Modifiers](#--modifiers)
+- [Fixing Our initial Issue](#fixing-our-initial-issue)
+- [`Pick` Mapped Type](#pick-mapped-type)
+- [`Record` Mapped Type](#record-mapped-type)
+- [Summary](#summary)
+
+<!-- tocstop -->
 
 ## `Readonly` Mapped Type
 

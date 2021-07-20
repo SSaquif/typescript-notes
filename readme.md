@@ -1,12 +1,14 @@
 # Typescript Notes
 
-Notes Based on Todd Motto's TS course
+Notes Based on [Todd Motto's TS courses](https://ultimatecourses.com/courses/typescript)
 
-The course uses a older verion of TS `2.6.2`, as of present I have `4.3.4` on my computer
+The course uses a older verion of TS, `2.6.2`
 
-Since this is just basic notes, I wont update the project to the latest version (for now at least)
+Since this is just basic notes, I wont update the project to the latest version (as of present latest version is `4.3.4` ) unless necessary
 
 ## Contents
+
+#### Basics
 
 0. JS Basics Review
 
@@ -31,6 +33,8 @@ Since this is just basic notes, I wont update the project to the latest version 
    C. `this` refresher (skipped)
 
    D. Typing `this` in TS
+
+#### Advanced
 
 8. Type Queries
 
