@@ -11,16 +11,16 @@ Idea is transforming one type to another type.
 <!-- toc -->
 
 - [`Readonly` Mapped Type](#readonly-mapped-type)
-  * [Idea of Mapped Types using Readonly](#idea-of-mapped-types-using-readonly)
-  * [New Way, Getting Rid of Our Extra Interface](#new-way-getting-rid-of-our-extra-interface)
-  * [Mapped Types with Generics](#mapped-types-with-generics)
-  * [Old Way, Writing Our Own Readonly Mapped Type](#old-way-writing-our-own-readonly-mapped-type)
+  - [Idea of Mapped Types using Readonly](#idea-of-mapped-types-using-readonly)
+  - [New Way, Getting Rid of Our Extra Interface](#new-way-getting-rid-of-our-extra-interface)
+  - [Mapped Types with Generics](#mapped-types-with-generics)
+  - [Old Way, Writing Our Own Readonly Mapped Type](#old-way-writing-our-own-readonly-mapped-type)
 - [`Partial` Mapped Type](#partial-mapped-type)
-  * [Creating A New Interface](#creating-a-new-interface)
+  - [Creating A New Interface](#creating-a-new-interface)
 - [Our Custom Partial Mapped Type](#our-custom-partial-mapped-type)
 - [Built In Partial Mapped Type](#built-in-partial-mapped-type)
 - [`Required` Mapped Type, +/- Modifiers](#required-mapped-type---modifiers)
-  * [+/- Modifiers](#--modifiers)
+  - [+/- Modifiers](#--modifiers)
 - [Fixing Our initial Issue](#fixing-our-initial-issue)
 - [`Pick` Mapped Type](#pick-mapped-type)
 - [`Record` Mapped Type](#record-mapped-type)
@@ -210,7 +210,7 @@ updatePerson(person, { age: 28 });
 console.log(person);
 ```
 
-## Our Custom Partial Mapped Type
+### Our Custom Partial Mapped Type
 
 Tthis is what the Partial Mapped type would look like
 
@@ -224,7 +224,7 @@ function updatePerson(person: Person, prop: MyPartial<Person>) {
 }
 ```
 
-## Built In Partial Mapped Type
+### Built In Partial Mapped Type
 
 Finally we can just use the Built-in one and not create any type/interface
 
@@ -347,6 +347,56 @@ console.log(details2);
 ```
 
 ## `Pick` Mapped Type
+
+Pick Mapped Type is a bit different.
+
+It's kind of similar to `lodash's pluck function`
+
+It let's us cherry pick the properties of a Type/Interface we want to use instead of having to use all of them. Kind of like an advanced version of `Partial`
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+  address: {};
+}
+
+type MyPick<T, K extends keyof T> = {
+  [P in K]: T[P];
+};
+
+const person: MyPick<Person, "name" | "age"> = {
+  name: "Sadnan",
+  age: 27,
+};
+
+// built in
+const person: Pick<Person, "name" | "age"> = {
+  name: "Sadnan",
+  age: 27,
+};
+```
+
+### Breakdown
+
+The following contains the interestin parts of the code
+
+```ts
+type MyPick<T, K extends keyof T> = {
+  [P in K]: T[P];
+};
+
+const person: MyPick<Person, "name" | "age"> = {
+  name: "Sadnan",
+  age: 27,
+};
+```
+
+From last section, we know `K extends keyof T` means that `type K` has to be `some combination of the keys in type T, ie an Union Type`.
+
+In our case `Union type K` is the combination `"name"|"age"` of type `Person`
+
+`[P in K]: T[P];` is simply means for each property in the `Union Type K` ("name"|"age"), get the type of those properties from `T ie Interface Person in this case`
 
 ## `Record` Mapped Type
 
