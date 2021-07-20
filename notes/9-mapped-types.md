@@ -17,12 +17,13 @@ Idea is transforming one type to another type.
   - [Old Way, Writing Our Own Readonly Mapped Type](#old-way-writing-our-own-readonly-mapped-type)
 - [`Partial` Mapped Type](#partial-mapped-type)
   - [Creating A New Interface](#creating-a-new-interface)
-- [Our Custom Partial Mapped Type](#our-custom-partial-mapped-type)
-- [Built In Partial Mapped Type](#built-in-partial-mapped-type)
+  - [Our Custom Partial Mapped Type](#our-custom-partial-mapped-type)
+  - [Built In Partial Mapped Type](#built-in-partial-mapped-type)
 - [`Required` Mapped Type, +/- Modifiers](#required-mapped-type---modifiers)
   - [+/- Modifiers](#--modifiers)
 - [Fixing Our initial Issue](#fixing-our-initial-issue)
 - [`Pick` Mapped Type](#pick-mapped-type)
+  - [Breakdown](#breakdown)
 - [`Record` Mapped Type](#record-mapped-type)
 - [Summary](#summary)
 
@@ -399,6 +400,8 @@ In our case `Union type K` is the combination `"name"|"age"` of type `Person`
 `[P in K]: T[P];` is simply means for each property in the `Union Type K` ("name"|"age"), get the type of those properties from `T ie Interface Person in this case`
 
 ## `Record` Mapped Type
+
+This mapped type is often used when we adopt the `Dictionary Pattern`
 
 ## Summary
 

@@ -1,4 +1,4 @@
-interface Person {
+export interface Person {
   name: string;
   age: number;
   address: {};
@@ -10,5 +10,10 @@ type MyPick<T, K extends keyof T> = {
 
 const person: MyPick<Person, "name" | "age"> = {
   name: "Sadnan",
+  age: 27,
+};
+
+const person2: Pick<Person, "name" | "age"> = {
+  name: "Saquif",
   age: 27,
 };
