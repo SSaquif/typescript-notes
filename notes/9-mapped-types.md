@@ -156,6 +156,8 @@ interface ReadonlyPerson {
 
 ## `Partial` Mapped Type
 
+Lot of times we want to partially update some data structure (mostly objects)
+
 In this example we are updating only certain fields of an existing object.
 
 To do this we first create a new interface. But this is not very DRY.
@@ -215,6 +217,116 @@ function updatePerson(person: Person, prop: Partial<Person>) {
 ```
 
 ## `Required` Mapped Type, +/- Modifiers
+
+Kind of the opposite of `Partial`. We make something required or not required by using the `+` or `-` modifiers.
+
+We can use it in conjuction with `?` with convert something that is optional into something that is required (`+`) or to remove it (`-`)
+
+In the following code we have age as an optional property, and the code perfectly valid. This results in undefined being printed at run time as the error is not caught by the compiler
+
+```ts
+export interface Person {
+  name: string;
+  age?: number;
+}
+
+function printDetails(person: Person) {
+  return `${person.name} is ${person.age}`;
+}
+
+const person: Person = {
+  name: "Sadnan",
+  //   age: 27,
+};
+
+// No errors
+const details = printDetails(person);
+
+// We get undefined printed
+// Sadnan is undefined
+console.log(details);
+```
+
+### +/- Modifiers
+
+We can make any optional propety required by using the `-` operator. We can keep them optional using the `+` operator. So let's create our Required mapped type as follows. We also have a redundant Partial as follows
+
+```ts
+export interface Person {
+  name: string;
+  age?: number;
+}
+
+// The `-` removes the `?` from optional properties
+// In this cage age would no longer be optional
+type MyRequired<T> = {
+  [P in keyof T]-?: T[P];
+};
+
+// The '+' simply adds the '?'
+// Hence it's rather redundant
+type MyPartial<T> = {
+  // The '+' is redundant
+  [P in keyof T]+?: T[P];
+};
+
+// The above is type identical this one
+type MyPartial<T> = {
+  [P in keyof T]?: T[P];
+};
+```
+
+However we can use `+/-` modifiers with pother operators too.
+in the example below we are creating a mapped type which converts all the properties to be readonly and required.
+
+Alternatively we could also remove any `readonly` rpoperties from a type using `-` instead
+
+```ts
+type MyRequiredReadonly<T> = {
+  +readonly [P in keyof T]-?: T[P];
+};
+```
+
+## Fixing Our initial Issue
+
+Finally here's our solution to our initial problem
+
+```ts
+export interface Person {
+  name: string;
+  age?: number;
+}
+
+type MyRequired<T> = {
+  [P in keyof T]-?: T[P];
+};
+
+function printDetails(person: MyRequired<Person>) {
+  return `${person.name} is ${person.age}`;
+}
+
+// Built in Required map
+function printDetails2(person: Required<Person>) {
+  return `${person.name} is ${person.age}`;
+}
+
+const person: MyRequired<Person> = {
+  name: "Sadnan",
+  age: 27,
+};
+
+const person2: Required<Person> = {
+  name: "Saquif",
+  age: 27,
+};
+
+// No errors
+const details = printDetails(person);
+const details2 = printDetails2(person2);
+
+console.log(details);
+console.log(details2);
+```
 
 ## `Pick` Mapped Type
 
