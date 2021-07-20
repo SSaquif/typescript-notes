@@ -11,20 +11,25 @@ Idea is transforming one type to another type.
 <!-- toc -->
 
 - [`Readonly` Mapped Type](#readonly-mapped-type)
-  - [Idea of Mapped Types using Readonly](#idea-of-mapped-types-using-readonly)
-  - [New Way, Getting Rid of Our Extra Interface](#new-way-getting-rid-of-our-extra-interface)
-  - [Mapped Types with Generics](#mapped-types-with-generics)
-  - [Old Way, Writing Our Own Readonly Mapped Type](#old-way-writing-our-own-readonly-mapped-type)
+  * [Idea of Mapped Types using Readonly](#idea-of-mapped-types-using-readonly)
+  * [New Way, Getting Rid of Our Extra Interface](#new-way-getting-rid-of-our-extra-interface)
+  * [Mapped Types with Generics](#mapped-types-with-generics)
+  * [Old Way, Writing Our Own Readonly Mapped Type](#old-way-writing-our-own-readonly-mapped-type)
 - [`Partial` Mapped Type](#partial-mapped-type)
-  - [Creating A New Interface](#creating-a-new-interface)
-  - [Our Custom Partial Mapped Type](#our-custom-partial-mapped-type)
-  - [Built In Partial Mapped Type](#built-in-partial-mapped-type)
+  * [Creating A New Interface](#creating-a-new-interface)
+  * [Our Custom Partial Mapped Type](#our-custom-partial-mapped-type)
+  * [Built In Partial Mapped Type](#built-in-partial-mapped-type)
 - [`Required` Mapped Type, +/- Modifiers](#required-mapped-type---modifiers)
-  - [+/- Modifiers](#--modifiers)
-- [Fixing Our initial Issue](#fixing-our-initial-issue)
+  * [+/- Modifiers](#--modifiers)
+  * [Fixing Our initial Issue](#fixing-our-initial-issue)
 - [`Pick` Mapped Type](#pick-mapped-type)
-  - [Breakdown](#breakdown)
+  * [Breakdown](#breakdown)
 - [`Record` Mapped Type](#record-mapped-type)
+  * [A Dictionary Implementation](#a-dictionary-implementation)
+  * [Record Mapped Type](#record-mapped-type)
+  * [Updating the Dictionary](#updating-the-dictionary)
+  * [No Interface](#no-interface)
+  * [Advantages of using Record for Dictionaries](#advantages-of-using-record-for-dictionaries)
 - [Summary](#summary)
 
 <!-- tocstop -->
@@ -306,7 +311,7 @@ type MyRequiredReadonly<T> = {
 };
 ```
 
-## Fixing Our initial Issue
+### Fixing Our initial Issue
 
 Finally here's our solution to our initial problem
 
@@ -403,8 +408,124 @@ In our case `Union type K` is the combination `"name"|"age"` of type `Person`
 
 This mapped type is often used when we adopt the `Dictionary Pattern`
 
+### A Dictionary Implementation
+
+First let's create our own dictionary from scratch and later we will replace it with a Record type
+
+```ts
+let dictionary: { [key: string]: any } = {};
+
+// can think of this as some kind of data stucture
+// similar to a linked list
+// current = address/hash some refrence to current item
+// next = address/hash some refrence to next item
+interface TrackStates {
+  current: string;
+  next: string;
+}
+
+const item1: TrackStates = {
+  current: "js02js9",
+  next: "jdska29w",
+};
+
+const item2: TrackStates = {
+  current: "jdska29w",
+  next: "kdlsa23i",
+};
+
+dictionary[0] = item1;
+dictionary["a"] = item2;
+
+console.log(dictionary);
+// {
+//     '0': { current: 'js02js9', next: 'jdska29w' },
+//     a: { current: 'jdska29w', next: 'kdlsa23i' }
+// }
+```
+
+### Record Mapped Type
+
+Won't be creating this one from scratch, but this is what the built in implementation looks like
+
+```ts
+// From video
+type Record<K extends keyof string, T> = {
+  [P in K]: T;
+};
+
+// When I checked it, string replaced with any
+type Record<K extends keyof string, T> = {
+  [P in K]: T;
+};
+```
+
+### Updating the Dictionary
+
+Fianlly we can update our dictionary implementation to use `Record`
+
+```ts
+let dictionary: Record<string, TrackStates> = {};
+
+export interface TrackStates {
+  current: string;
+  next: string;
+}
+
+// Less Dynamic
+const item1: Record<"current" | "next", string> = {
+  current: "js02js9",
+  next: "jdska29w",
+};
+
+// More Dynamic
+const item2: Record<keyof TrackStates, string> = {
+  current: "jdska29w",
+  next: "kdlsa23i",
+};
+
+dictionary[0] = item1;
+dictionary["a"] = item2;
+```
+
+### No Interface
+
+Finally let's say we don't have access to any interface. We can use `typeof` instead
+
+But interfaces should be preferred
+
+```ts
+let dictionary: Record<string, typeof item1> = {};
+
+// Less Dynamic
+const item1: Record<"current" | "next", string> = {
+  current: "js02js9",
+  next: "jdska29w",
+};
+
+dictionary[0] = item1;
+```
+
+### Advantages of using Record for Dictionaries
+
+1. We have more control of what our dictionary can look like
+
+2. ie it's more customised
+
+3. We can choose what are the valid key names
+
+4. We can also decide what the valid values of those keys are
+
+5. We don't need the interface, can use typeof instead
+
+[Video on Records](https://app.ultimatecourses.com/course/typescript-masterclass/record-mapped-type)
+
+> However implenting dictionaries do seem a bit of extra work to me. I need to look into more real life use cases for them
+
 ## Summary
 
 1. Using built-in/custom Mapped Types saves us from creating a whole bunch of similar looking Interfaces over and over again
 
 2. User `ctrl/cmd + click`, to see the actual implemtation of any built in mapped types
+
+3. I should look more into the dictionary pattern and it's use in TS. Will help undesrstand record better
