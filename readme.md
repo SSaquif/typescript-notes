@@ -66,11 +66,11 @@ Actual Runnable Code in the `typescript-starter-project` folder
 
 3. You cant reuse variable names in different files unless you use module system (see below)
 
-4. Modules are a way to create a local scope in the file. So, all variables, classes, functions, etc. that are declared in a module are not accessible outside the module.
+4. Modules are a way to create a local scope in the file. So, all variables, classes, functions, etc. that are declared in a module are not accessible outside the module
 
-5. An module can be created using the keyword export and a module can be used in another module using the keyword import.
+5. An module can be created using the keyword export and a module can be used in another module using the keyword import
 
-6. For this reason a most files have at least 1 unnecessary export in them
+6. For this reason most files have at least 1 export in them. Even if they are never being imported
 
 ## Resources
 
