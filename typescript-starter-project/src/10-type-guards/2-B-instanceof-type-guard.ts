@@ -1,8 +1,8 @@
-class Song {
+export class Song {
   constructor(public title: string, public duration: number) {}
 }
 
-class Playlist {
+export class Playlist {
   constructor(public name: string, public songs: Song[]) {}
 }
 
