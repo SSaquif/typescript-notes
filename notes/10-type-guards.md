@@ -20,6 +20,20 @@ export function foo(bar: string | number) {
 
 <!-- toc -->
 
+- [`typeof` & Type Guards](#typeof--type-guards)
+- [`instanceof` & Type Guards](#instanceof--type-guards)
+  * [OOP review](#oop-review)
+  * [Assertion using `as` vs `instanceof`](#assertion-using-as-vs-instanceof)
+- [User Defined Type Guards & `is` Operator](#user-defined-type-guards--is-operator)
+    + [Issue](#issue)
+    + [Fix](#fix)
+- [Literal Type Guards and `in` Operator](#literal-type-guards-and-in-operator)
+  * [Literal Type](#literal-type)
+  * [`in` Operator](#in-operator)
+  * [Using them together (Did not work for me )](#using-them-together-did-not-work-for-me-)
+
+<!-- tocstop -->
+
 ## `typeof` & Type Guards
 
 Here's a bit more complex example (not really), but with type guards TS can successfully infer different types of same variables within different scopes
@@ -103,6 +117,108 @@ function getItemName2(item: Song | Playlist) {
 }
 ```
 
-## User Defined Type Guards
+## User Defined Type Guards & `is` Operator
+
+We can create out own type guards by writing functions that return boolean after asserting a type for the passed object as below.
+
+But doing so TS once again loses it's ability to infer the type inside and after the conditional.
+
+#### Issue
+
+```ts
+function isSong(item: any) {
+  return item instanceof Song;
+}
+
+// This is valid code but the tsc will throw error
+function getItemName(item: Song | Playlist) {
+  if (isSong(item)) {
+    return item.title; // compilation error
+  }
+  return item.name; // compilation error
+}
+```
+
+Now we can use `as` to fix but there is a better way using `is`
+
+We simply update out type assetion function as follows
+
+#### Fix
+
+```ts
+function isSong(item: any): item is Song {
+  return item instanceof Song;
+}
+
+function getItemName(item: Song | Playlist) {
+  if (isSong(item)) {
+    return item.title;
+  }
+  return item.name;
+}
+```
 
 ## Literal Type Guards and `in` Operator
+
+Personally avoid this. The last part might have been deprecated cause it did not work for me
+
+### Literal Type
+
+```ts
+// type of foo is bar, and not string
+// this is a literal type
+// const foo: "bar" (see this on hover)
+const foo = bar;
+```
+
+### `in` Operator
+
+A quick refresher on how we can use `in`
+
+```ts
+// Example 1
+const obj = { name: "Sadnan" };
+for (const key in obj) {
+  console.log(key); //name
+}
+
+// Example 2
+const exists = "name" in obj;
+console.log(exists); //true
+```
+
+In the context of our previous examples we could od the following to check if a certain property exists, Think you can do this JS nowadays as well
+
+```ts
+// returns boolean by checking if property exits or not
+function isSong(item: any): item is Song {
+  return "title" in item;
+}
+```
+
+### Using them together (Did not work for me )
+
+```ts
+export class Song {
+  kind = "song"; // Literal Type
+  constructor(public title: string, public duration: number) {}
+}
+
+export class Playlist {
+  kind = "playlist"; // Literal Type
+  constructor(public name: string, public songs: Song[]) {}
+}
+
+// returns boolean by checking if property exits or not
+function isSong(item: any): item is Song {
+  return "title" in item;
+}
+
+// This did not work for me (avoid this)
+function getItemName(item: Song | Playlist) {
+  if (item.kind === "song") {
+    return item.title;
+  }
+  return item.name;
+}
+```
