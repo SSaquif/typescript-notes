@@ -6,12 +6,14 @@ This section talks about how ts works and how to set it up.
 
 <!-- toc -->
 
-- [Intro](#intro)
-- [Typescript Compiler](#typescript-compiler)
-- [Installing TS Compilers](#installing-ts-compilers)
-- [TypeScript Compiler (tsc) and tsconfig](#typescript-compiler-tsc-and-tsconfig)
-- [Setting up Webpack for TypeScript](#setting-up-webpack-for-typescript)
-- [Resources](#resources)
+- [TS Under the Hood](#ts-under-the-hood)
+  - [Contents](#contents)
+  - [Intro](#intro)
+  - [Typescript Compiler](#typescript-compiler)
+  - [Installing TS Compilers](#installing-ts-compilers)
+  - [TypeScript Compiler (tsc) and tsconfig](#typescript-compiler-tsc-and-tsconfig)
+  - [Setting up Webpack for TypeScript](#setting-up-webpack-for-typescript)
+  - [Setting up TS for Node.js](#setting-up-ts-for-nodejs)
 
 <!-- tocstop -->
 
@@ -157,4 +159,43 @@ tsc -watch
 
 11. We don't need the `outDir` property for webpack but good idea to keep it none the less if we need to use tsc directly again. (I checked this, works as expected)
 
-## Resources
+## Setting up TS for Node.js
+
+We will get typescript, and the TS type definitions for node itself
+
+Additionally we will also need the program `ts-node` to the grunt work and run our files.
+
+We will use it in the start script
+
+```bash
+yarn add -D @types/node typescript ts-node
+```
+
+```json
+{
+  "scripts": {
+    "start": "tsc-node src/index.ts"
+  }
+}
+```
+
+While that is easy, ts-node is pretty slow and not actually used in production. (So will probably not have that as my start `script` in the future)
+
+So I have an alternate `watch` script as follows.
+
+Finally we can run just run the index.js file created in dist folder using node or nodemon in a different terminal
+
+So we can change our `start` script and add a `dev` script as well
+
+If you want you could also use `nodemon` with wit `ts-node` as in the script `dev2`
+
+```json
+{
+  "scripts": {
+    "watch": "tsc -watch",
+    "start": "node dist/index.js",
+    "dev": "nodemon dist/index.js",
+    "dev2": "nodemon --exec ts-node src/index.ts"
+  }
+}
+```
