@@ -1,0 +1,18 @@
+# Table of contents
+
+* [Typescript Notes](README.md)
+* [notes](notes/README.md)
+  * [Basic JS Review](notes/0-js-review.md)
+  * [TS Under the Hood](notes/1-intro.md)
+  * [Type Guards](notes/10-type-guards.md)
+  * [ES6/7 and TypeScript](notes/2-es6-7-ts.md)
+  * [Primitive Types](notes/3-primitivetypes.md)
+  * [TypeScript Types](notes/4-typescripttypes.md)
+  * [Type Aliases & Type Assertions](notes/5-type-aliases-and-assertions.md)
+  * [Interfaces](notes/6-interfaces.md)
+  * [OOP](notes/7-a-oop-review.md)
+  * [OOP with TS](notes/7-b-oop-with-ts.md)
+  * [this Refresher](notes/7-c-this-refresher.md)
+  * [Typing this & noImplicitThis](notes/7-d-typing-this.md)
+  * [Type Queries](notes/8-type-queries.md)
+  * [Mapped Types](notes/9-mapped-types.md)
